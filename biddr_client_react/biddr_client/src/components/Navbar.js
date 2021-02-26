@@ -12,13 +12,11 @@ function Navbar(props) {
        <nav className="navbar">
         <div className= "navbar-container">
 
-        <NavLink className ="navbar-index"to='/' >
-            Menu 
-        </NavLink>
+      
         <NavLink className ="navbar-index"to='/auctions' >
             Menu 
         </NavLink>
-      
+        
             {
                 props.currentUser ? 
                 (
@@ -30,10 +28,12 @@ function Navbar(props) {
                 )
                 :(
                 <div>
-                    <NavLink className="navbar-cart" to='/'>
+                    <NavLink className="navbar-cart" to='/sign_in'>
                         Sign In
                     </NavLink>
-    
+                    <NavLink className="navbar-cart" to='/sign_up'>
+                        Sign Up
+                    </NavLink>
                     
                 </div>
                 )

@@ -1,8 +1,9 @@
 import React from 'react';
-import {User} from '../data/requests.js'
+import {User} from '../data/request'
 
 
 const SignUpPage=(props)=>{
+
     const {handleSignUp,history}=props;
     function handleSubmit(event){
         event.preventDefault();
@@ -18,7 +19,7 @@ const SignUpPage=(props)=>{
         User.create(signUpParams).then(res=>{
             if (res.id){
                 handleSignUp();
-                history.push('/questions')
+                //history.push('/auctions')
             }
         })
 
