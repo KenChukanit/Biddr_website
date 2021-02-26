@@ -1,5 +1,6 @@
 class Api::V1::BidsController < Api::ApplicationController
     def create
+        #auction_id = params[:id]
         auction = Auction.find params[:auction_id]
        
         bid = Bid.create bid_params

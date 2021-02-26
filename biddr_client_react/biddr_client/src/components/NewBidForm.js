@@ -18,7 +18,7 @@ function NewBidForm(props) {
         Bid.create(params,id)
         .then((bid)=>{
             if(bid){
-                console.log(bid.id)
+                console.log(bid)
             }
             props.history.push(`/auctions/${id}`)
             

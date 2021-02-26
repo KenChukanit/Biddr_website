@@ -25,7 +25,7 @@ function NewAuctionForm(props) {
         .then((auction)=>{
             if(auction.id){
                 const id = auction.id;
-                props.history.push(`/auctions/${id}`)
+                //props.history.push(`/auctions/${id}`)
             }
         })
     }

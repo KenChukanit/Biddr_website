@@ -9,7 +9,7 @@ function BidList(props) {
             return <BidDetails
               key={i}
               id={b.id}
-              bid={b.brice}
+              bid_price={b.bid_price}
               user={b.user}
               created_at={b.created_at}
             />

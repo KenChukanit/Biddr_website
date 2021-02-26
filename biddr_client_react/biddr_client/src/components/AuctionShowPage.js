@@ -31,7 +31,7 @@ function AuctionShowPage(props) {
                 reserve_price = {reserve_price}
                 created_at = {created_at}
             />
-            <NewBidForm id={id}/>
+            <NewBidForm id={id} history={props.history}/>
             <BidList
                 bids = {bids}
             />
