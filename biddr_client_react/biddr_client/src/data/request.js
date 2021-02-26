@@ -73,3 +73,17 @@ export const Auction = {
     }).then(res=> res.json());
   }
 }
+export const Bid= {
+  create(params,id) {
+      return fetch(`${BASE_URL}/auctions/${id}/reviews`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+              'Content-Type': 'application/json'
+              },
+          body: JSON.stringify(params)
+      })
+      .then((resp) => resp.json(params))
+      .catch((err)=>console.log(err))
+  }
+}

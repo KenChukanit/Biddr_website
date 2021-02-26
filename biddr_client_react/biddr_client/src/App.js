@@ -9,6 +9,7 @@ import SignInPage from './components/SignInPage';
 import AuthRoute from './components/AuthRoute';
 import AuctionIndexPage from './components/AuctionIndexPage';
 import NewAuctionPage from './components/NewAuctionPage';
+import AuctionShowPage from './components/AuctionShowPage';
 
 function App(props) {
   const [user, setUser] = useState(null)
@@ -51,6 +52,7 @@ function App(props) {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/auctions' component={AuctionIndexPage} />
           <AuthRoute path='/auctions/new' isAuth={user} component={NewAuctionPage}/>
+          <Route path='/auctions/:id' component={AuctionShowPage} />
           <Route exact path='/sign_in' render={(routeProps)=><SignInPage 
                                   handleSubmit={handleSubmit} 
                                   {...routeProps}/>} 

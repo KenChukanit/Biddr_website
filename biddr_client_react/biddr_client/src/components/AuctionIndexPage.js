@@ -10,7 +10,7 @@ function AuctionIndexPage(props) {
         .then((auctions) => {
             setAuctions(auctions)
         })
-    })
+    },[])
 
     return (
         <main>
