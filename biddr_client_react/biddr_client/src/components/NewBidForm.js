@@ -20,6 +20,7 @@ function NewBidForm(props) {
             if(bid){
                 console.log(bid)
             }
+            props.loadAuction()
             props.history.push(`/auctions/${id}`)
             
         })

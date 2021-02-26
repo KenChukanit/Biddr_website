@@ -6,21 +6,26 @@ import NewBidForm from './NewBidForm';
 
 function AuctionShowPage(props) {
     const [auction,setAuction] = useState({});
+    const [checkReservePrice, setCheckReservePrice] = ('')
     const id = props.match.params.id
    
-    const loadAuction=()=>{
+
+    const loadAuction=()=>{ 
         Auction.show(id)
         .then(auction => {
           console.log(auction);
         setAuction(auction)
         })
     }
-
+    const checkBid=(bid)=>{
+        
+    }
     useEffect(()=>{
         loadAuction()
     },[])
     console.log(auction)
     const {title, description,end_at,reserve_price,created_at,bids} = auction
+    
     return (
         <div>
             <AuctionDetails
@@ -31,9 +36,19 @@ function AuctionShowPage(props) {
                 reserve_price = {reserve_price}
                 created_at = {created_at}
             />
-            <NewBidForm id={id} history={props.history}/>
+            {!bids?(<div>No one bid in this auction</div>):
+            (<div>{Math.max(...bids.map((bid)=>{
+                return bid.bid_price
+            }))>=reserve_price?(
+            <div>Reserve Price Met</div>):
+            (<div>Reserve Price Not Met</div>)}</div>)}
+            <NewBidForm id={id} 
+                        history={props.history}
+                        loadAuction ={loadAuction}
+            />
             <BidList
                 bids = {bids}
+                reserve_price ={reserve_price}
             />
             
         </div>

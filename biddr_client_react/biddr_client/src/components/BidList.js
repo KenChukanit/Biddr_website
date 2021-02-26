@@ -12,6 +12,7 @@ function BidList(props) {
               bid_price={b.bid_price}
               user={b.user}
               created_at={b.created_at}
+              reserve_price = {props.reserve_price}
             />
           }) : '' }
         </>
