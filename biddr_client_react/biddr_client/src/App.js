@@ -1,12 +1,14 @@
 import './App.css';
-import React,{useState,useEffect} from 'react'
-import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import React,{useState,useEffect} from 'react';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import {Session} from "./data/request";
-import HomePage from './components/HomePage'
-import Navbar from './components/Navbar'
-import SignUpPage from './components/SignUpPage'
-import SignInPage from './components/SignInPage'
+import HomePage from './components/HomePage';
+import Navbar from './components/Navbar';
+import SignUpPage from './components/SignUpPage';
+import SignInPage from './components/SignInPage';
 import AuthRoute from './components/AuthRoute';
+import AuctionIndexPage from './components/AuctionIndexPage';
+import NewAuctionPage from './components/NewAuctionPage';
 
 function App(props) {
   const [user, setUser] = useState(null)
@@ -42,8 +44,9 @@ function App(props) {
     <div className="App">
 
         <BrowserRouter>
-        <Navbar 
-          />
+        <Navbar  currentUser={user}
+                  destroySession={destroySession}
+          />  
           <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/sign_in' render={(routeProps)=><SignInPage 

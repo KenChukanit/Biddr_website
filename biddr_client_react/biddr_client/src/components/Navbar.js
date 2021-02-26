@@ -21,7 +21,7 @@ function Navbar(props) {
                 props.currentUser ? 
                 (
                 <div>
-                    <h3 className="nav-index">{props.currentUser.username}</h3> 
+                    <h3 className="nav-index">{props.currentUser.first_name}</h3> 
                     
                     <button className="btn--outline" onClick={handleSignOut}>Sign Out</button>
                 </div>
