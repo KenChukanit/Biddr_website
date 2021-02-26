@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import NewAuctionForm from "./NewAuctionForm";
 
-function NewAuctionPage() {
+function NewAuctionPage(props) {
     return (
-        <div>
-            
-        </div>
+        <main>
+            <NewAuctionForm/>
+        </main>
     )
 }
 

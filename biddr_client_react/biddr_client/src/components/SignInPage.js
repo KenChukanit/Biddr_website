@@ -10,7 +10,7 @@ const SignInPage =({handleSubmit, history})=>{
             password: formData.get('password')
         }
         handleSubmit(formValues);
-        //history.push('/auctions');
+        history.push('/auctions');
 
     }
     return(

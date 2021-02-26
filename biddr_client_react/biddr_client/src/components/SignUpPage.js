@@ -19,7 +19,7 @@ const SignUpPage=(props)=>{
         User.create(signUpParams).then(res=>{
             if (res.id){
                 handleSignUp();
-                //history.push('/auctions')
+                history.push('/auctions')
             }
         })
 

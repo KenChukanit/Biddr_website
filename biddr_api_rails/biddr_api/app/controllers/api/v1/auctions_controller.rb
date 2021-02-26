@@ -11,7 +11,7 @@ class Api::V1::AuctionsController < Api::ApplicationController
     end
     def create
         auction = Auction.new auction_params
-        #auction.user=current_user
+        auction.user=current_user
         if auction.save
             render json:{id: auction.id}
         else

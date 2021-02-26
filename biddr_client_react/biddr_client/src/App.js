@@ -49,6 +49,8 @@ function App(props) {
           />  
           <Switch>
           <Route exact path='/' component={HomePage} />
+          <Route exact path='/auctions' component={AuctionIndexPage} />
+          <AuthRoute path='/auctions/new' isAuth={user} component={NewAuctionPage}/>
           <Route exact path='/sign_in' render={(routeProps)=><SignInPage 
                                   handleSubmit={handleSubmit} 
                                   {...routeProps}/>} 

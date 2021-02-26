@@ -13,10 +13,15 @@ function Navbar(props) {
         <div className= "navbar-container">
 
       
-        <NavLink className ="navbar-index"to='/auctions' >
-            Menu 
+        <NavLink className ="navbar-index"to='/' >
+            Home
         </NavLink>
-        
+        <NavLink className ="navbar-index"to='/auctions' >
+            Auctions
+        </NavLink>
+        <NavLink className ="navbar-index"to='/auctions/new' >
+            New Auction
+        </NavLink>
             {
                 props.currentUser ? 
                 (
