@@ -13,11 +13,19 @@ function AuctionShowPage(props) {
     const loadAuction=()=>{ 
         Auction.show(id)
         .then(auction => {
-          console.log(auction);
+        console.log(auction);
         setAuction(auction)
         })
     }
- 
+    const checkBid =(arr)=>{
+        let max = Math.max(...arr);
+        if(max !== Infinity || max !== NaN){
+            return max
+        }else{
+            max = 0;
+            return max
+        }
+    }
     useEffect(()=>{
         loadAuction()
     },[])
@@ -34,10 +42,10 @@ function AuctionShowPage(props) {
                 reserve_price = {reserve_price}
                 created_at = {new Date(created_at)}
             />
-              {!bids || bids === undefined?(<div></div>):
-            (<h5 className="mt-2">Current Price: {Math.max(...bids.map((bid)=>{
-                return bid.bid_price 
-                }))}</h5>)}
+              {!bids || bids.length === 0?(<div></div>):
+            (<h5 className="mt-2">Current Price: {checkBid(bids.map((bid)=>{
+                return bid.bid_price
+            }))}</h5>)}
 
             {!bids || bids.length === 0?(<h5>No one bid in this auction</h5>):
             (<h5>{Math.max(...bids.map((bid)=>{
@@ -50,10 +58,10 @@ function AuctionShowPage(props) {
                         loadAuction ={loadAuction}
             />
             <h3>Previous bids</h3>
-            <BidList
+            {!bids || bids.length===0?(<h3>Recently No Bid</h3>):(<BidList
                 bids = {bids}
                 reserve_price ={reserve_price}
-            />
+            />)}
             
         </div>
     )

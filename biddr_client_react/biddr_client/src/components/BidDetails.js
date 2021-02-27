@@ -1,12 +1,12 @@
 import React from 'react';
 
 function BidDetails(props) {
-    const {bid_price} = props;
+    const {bid_price,created_at} = props;
 
     return (
-        <h3>
-            {bid_price}
-        </h3>
+        <h5>
+            $ {bid_price} on {created_at.toDateString()}
+        </h5>
     )
 }
 

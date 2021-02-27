@@ -1,11 +1,13 @@
 import React,{useState} from 'react';
 import {Auction} from '../data/request';
+import FormErrors from './FormErrors';
 
 function NewAuctionForm(props) {
     const [title,setTitle]=useState('');
     const [description,setDescription]=useState('');
     const [endAt, setEndAt] = useState('');
     const [reservePice,setReservePrice] = useState('');
+    const [errors,setErrors]=useState({});
 
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -23,6 +25,9 @@ function NewAuctionForm(props) {
     const createAuction=(params)=>{
         Auction.create(params)
         .then((auction)=>{
+            if(auction.errors){
+                setErrors(auction.errors)
+            }
             if(auction.id){
                 const id = auction.id;
                 console.log(id)
@@ -37,6 +42,7 @@ function NewAuctionForm(props) {
             <form className="form-group" onSubmit={event=>handleSubmit(event)}>
                 <div>
                     <label htmlFor='title'>Title: </label><br/>
+                    <FormErrors errors={errors} forField='title'/>
                     <input name='title' 
                             id='title' 
                             value={title} 
@@ -47,6 +53,7 @@ function NewAuctionForm(props) {
                 </div>
                 <div>
                     <label htmlFor='description'>Description: </label>
+                    <FormErrors errors={errors} forField='description'/>
                     <textarea name='description' 
                             id='description' 
                             cols='60' 
@@ -58,7 +65,8 @@ function NewAuctionForm(props) {
                             />
                 </div>
                 <div>
-                    <label htmlFor='end_at'>End at: </label><br/>
+                    <label htmlFor='end_at'>End at: </label>
+                    <FormErrors errors={errors} forField='end_date'/>
                     <input type="date" 
                             name='end_at' 
                             id='end_at' 
@@ -70,6 +78,7 @@ function NewAuctionForm(props) {
                 </div>
                 <div>
                     <label htmlFor='reserve_price'>Reserve Price: </label><br/>
+                    <FormErrors errors={errors} forField='reserve_price'/>
                     <input name='reserve_price' 
                             id='reserve_price' 
                             value={reservePice} 

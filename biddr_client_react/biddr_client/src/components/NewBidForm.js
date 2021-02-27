@@ -1,8 +1,11 @@
 import React,{useState} from 'react'
 import {Bid} from '../data/request';
+import FormErrors from './FormErrors';
 
 function NewBidForm(props) {
     const [bidPrice,setBidPrice] = useState('');
+    const [errors,setErrors]=useState({});
+
     const id = props.id
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -17,6 +20,9 @@ function NewBidForm(props) {
     const createBid=(params,id)=>{
         Bid.create(params,id)
         .then((bid)=>{
+            if(bid.errors){
+                setErrors(bid.errors)
+            }
             if(bid){
                 console.log(bid)
             }
@@ -29,7 +35,7 @@ function NewBidForm(props) {
         <div>
             <form onSubmit={event=>handleSubmit(event)}>
                 <div>
-                 
+                <FormErrors errors={errors} forField='bid_price'/>
                     <input name='bid_price' id='bid_price' value={bidPrice} onChange={e=>setBidPrice(e.target.value)}/>
                 </div>
                 <input type='submit' value='Bid' className="btn btn-primary mt-4"/>

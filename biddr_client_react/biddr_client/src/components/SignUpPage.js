@@ -1,10 +1,11 @@
-import React from 'react';
-import {User} from '../data/request'
-
+import React,{useState} from 'react';
+import {User} from '../data/request';
+import FormErrors from './FormErrors';
 
 const SignUpPage=(props)=>{
-
+    const [errors,setErrors]=useState({});
     const {handleSignUp,history}=props;
+
     function handleSubmit(event){
         event.preventDefault();
         const {currentTarget}=event;
@@ -17,6 +18,9 @@ const SignUpPage=(props)=>{
             password_confirmation: formData.get('password_confirmation')
         }
         User.create(signUpParams).then(res=>{
+            if(res.errors){
+                setErrors(res.errors)
+            }
             if (res.id){
                 handleSignUp();
                 history.push('/auctions')
@@ -30,22 +34,27 @@ const SignUpPage=(props)=>{
         <form className="form-group" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="first_name">First Name</label>
+                <FormErrors errors={errors} forField='first_name'/>
                 <input type='text' name='first_name' id='first_name' className="form-control"/>
             </div>
             <div>
                 <label htmlFor="last_name">Last Name</label>
+                <FormErrors errors={errors} forField='last_name'/>
                 <input type='text' name='last_name' id='last_name' className="form-control"/>
             </div>
             <div>
                 <label htmlFor="email">Email</label>
+                <FormErrors errors={errors} forField='email'/>
                 <input type='email' name='email' id='email' className="form-control"/>
             </div>
             <div>
                 <label htmlFor="password">Password</label>
+                <FormErrors errors={errors} forField='password'/>
                 <input type='password' name='password' id='password' className="form-control"/>
             </div>
             <div>
                 <label htmlFor="password_confirmation">Password Confirmation</label>
+                <FormErrors errors={errors} forField='password_confirmation'/>
                 <input type='password' name='password_confirmation' id='password_confirmation' className="form-control"/>
             </div>
             <input type='submit' value='Sign Up'/>
