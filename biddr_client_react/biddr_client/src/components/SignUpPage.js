@@ -29,7 +29,7 @@ const SignUpPage=(props)=>{
 
     }
     return(
-        <main>
+        <main className="container">
         <h1>Sign Up</h1>
         <form className="form-group" onSubmit={handleSubmit}>
             <div>

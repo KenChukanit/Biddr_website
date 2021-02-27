@@ -3,7 +3,7 @@ import NewAuctionForm from "./NewAuctionForm";
 
 function NewAuctionPage(props) {
     return (
-        <main>
+        <main className = "container">
             <NewAuctionForm history ={props.history}/>
         </main>
     )

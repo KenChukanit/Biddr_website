@@ -14,7 +14,7 @@ const SignInPage =({handleSubmit, history})=>{
 
     }
     return(
-        <main>
+        <main className="container">
         <h1>Sign In</h1>
         <form className="form-group" onSubmit={onSubmit}>
             <div>

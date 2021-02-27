@@ -28,6 +28,7 @@ function NewBidForm(props) {
             }
             props.loadAuction()
             props.history.push(`/auctions/${id}`)
+            setErrors({})
             
         })
     }

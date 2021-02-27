@@ -33,7 +33,7 @@ function AuctionShowPage(props) {
     const {title, description,end_at,reserve_price,created_at,bids} = auction
     
     return (
-        <div className="container">
+        <main className="container">
             <AuctionDetails
                 id = {id}
                 title = {title}
@@ -63,7 +63,7 @@ function AuctionShowPage(props) {
                 reserve_price ={reserve_price}
             />)}
             
-        </div>
+        </main>
     )
 }
 
