@@ -6,7 +6,7 @@ class Api::V1::SessionsController < Api::ApplicationController
             render json:{id: user.id}
         else
             render(
-                json: {status: 404},
+                json: {error: 404},
                 status: 404
             )
         end

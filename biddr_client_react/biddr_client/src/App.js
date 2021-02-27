@@ -58,6 +58,7 @@ function App(props) {
           />
           <Route exact path='/sign_in' render={(routeProps)=><SignInPage 
                                   handleSubmit={handleSubmit} 
+                                  currentUser={user}
                                   {...routeProps}/>} 
           />
           <Route exact path='/sign_up' render={(routeProps)=><SignUpPage 

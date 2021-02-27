@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SignInPage =({handleSubmit, history})=>{
+
+const SignInPage =({handleSubmit, history,currentUser})=>{
+
     function onSubmit(event){
         event.preventDefault();
         const {currentTarget}=event;
@@ -9,9 +11,9 @@ const SignInPage =({handleSubmit, history})=>{
             email: formData.get('email'),
             password: formData.get('password')
         }
-        handleSubmit(formValues);
-        history.push('/auctions');
-
+            console.log(currentUser)
+            handleSubmit(formValues);
+            history.push('/auctions');
     }
     return(
         <main className="container">
