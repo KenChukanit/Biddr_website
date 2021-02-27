@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Auction} from '../data/request';
 import { Link } from 'react-router-dom';
+import './AuctionIndexPage.css'
 
 function AuctionIndexPage(props) {
     const [auctions,setAuctions] = useState([]);
@@ -14,15 +15,15 @@ function AuctionIndexPage(props) {
 
     return (
         <main>
-      
+          <h1 className="index">Auctions</h1>
         {auctions.map((a,i)=> {
           return(
-            <div key={i}>
+            <div className="auction-index" key={i}>
               <Link to={`/auctions/${a.id}`}>
-                <h1>{a.id} - {a.title}</h1>
+                <h3>{a.id} - {a.title}</h3>
               </Link>
                 <div>
-                    <h3>posted on: {a.created_at}</h3>
+                    <h3>posted on: {new Date(a.created_at).toDateString()}</h3>
                 </div>
             </div>
           )

@@ -22,27 +22,30 @@ function Navbar(props) {
         <NavLink className ="navbar-index"to='/auctions/new' >
             New Auction
         </NavLink>
+        <span>
             {
+                
                 props.currentUser ? 
                 (
-                <div>
+                <>
                     <h3 className="nav-index">{props.currentUser.first_name}</h3> 
                     
-                    <button className="btn--outline" onClick={handleSignOut}>Sign Out</button>
-                </div>
+                    <button className="button" onClick={handleSignOut}>Sign Out</button>
+                </>
                 )
                 :(
-                <div>
-                    <NavLink className="navbar-cart" to='/sign_in'>
+                <>
+                    <NavLink className="navbar-index" to='/sign_in'>
                         Sign In
                     </NavLink>
-                    <NavLink className="navbar-cart" to='/sign_up'>
+                    <NavLink className="navbar-index" to='/sign_up'>
                         Sign Up
                     </NavLink>
-                    
-                </div>
+                </>
+          
                 )
             }
+            </span>
         </div>
 
 

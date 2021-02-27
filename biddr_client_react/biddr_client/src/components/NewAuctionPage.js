@@ -4,7 +4,7 @@ import NewAuctionForm from "./NewAuctionForm";
 function NewAuctionPage(props) {
     return (
         <main>
-            <NewAuctionForm/>
+            <NewAuctionForm history ={props.history}/>
         </main>
     )
 }

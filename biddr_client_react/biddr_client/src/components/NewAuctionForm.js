@@ -12,21 +12,21 @@ function NewAuctionForm(props) {
         const formData= new FormData(event.currentTarget);
         const params={
             title: formData.get('title'),
-            description: formData.get('body'),
+            description: formData.get('description'),
             end_at: formData.get('end_at'),
             reserve_price: formData.get('reserve_price')
         }
-        createAuction(params);
+        createAuction(params)
         event.currentTarget.reset();
     }
-
+    console.log(props)
     const createAuction=(params)=>{
         Auction.create(params)
         .then((auction)=>{
             if(auction.id){
                 const id = auction.id;
-               
-                props.history.push(`/auctions/${id}`)
+                console.log(id)
+            props.history.push(`/auctions/${id}`)
             }
         })
     }

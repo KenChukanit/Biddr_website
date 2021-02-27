@@ -32,10 +32,15 @@ function AuctionShowPage(props) {
                 id = {id}
                 title = {title}
                 description={description}
-                end_at = {end_at}
+                end_at = {new Date(end_at)}
                 reserve_price = {reserve_price}
-                created_at = {created_at}
+                created_at = {new Date(created_at)}
             />
+              {!bids || bids === NaN?(<div></div>):
+            (<div>Current Price: {Math.max(...bids.map((bid)=>{
+                return bid.bid_price
+                }))}</div>)}
+
             {!bids?(<div>No one bid in this auction</div>):
             (<div>{Math.max(...bids.map((bid)=>{
                 return bid.bid_price

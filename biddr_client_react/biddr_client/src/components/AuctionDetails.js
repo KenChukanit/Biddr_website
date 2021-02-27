@@ -4,10 +4,12 @@ import React from 'react';
 function AuctionDetails(props) {
     const {title, description,end_at,reserve_price,created_at} = props
     return (
-        <div>
-            <h1>{title}</h1>
+        <div className="show">
+            <h2>{title}</h2>
+            <div className="show-detail">
             <h5>{description}</h5>
-            <h3>{end_at}</h3>
+            <h5>Ends at:{end_at.toDateString()}</h5>
+            </div>
         </div>
     )
 }
