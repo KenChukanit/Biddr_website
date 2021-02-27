@@ -11,9 +11,13 @@ const SignInPage =({handleSubmit, history,currentUser})=>{
             email: formData.get('email'),
             password: formData.get('password')
         }
-            console.log(currentUser)
-            handleSubmit(formValues);
+        handleSubmit(formValues);
+        if(!currentUser){
+            history.push('/sign_in');
+            alert("no user please check you email and password")
+        }else{
             history.push('/auctions');
+        }    
     }
     return(
         <main className="container">
