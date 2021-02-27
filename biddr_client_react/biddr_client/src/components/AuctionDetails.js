@@ -4,13 +4,17 @@ import React from 'react';
 function AuctionDetails(props) {
     const {title, description,end_at,reserve_price,created_at} = props
     return (
-        <div className="show">
-            <h3>{title}</h3>
+        <>
+        <h3 className="d-flex flex-column mt-5">{title}</h3>
+        <div className="show d-flex flex-row mt-2">
+            
             <div className="show-detail">
-            <h5>{description}</h5>
-            <h5>Ends at:{end_at.toDateString()}</h5>
+            <h5 width="300px">{description}</h5>
+            <h5 className="d-flex flex-column">Ends at:  {end_at.toDateString()}</h5>
             </div>
+            
         </div>
+        </>
     )
 }
 

@@ -3,10 +3,10 @@ import {Auction} from '../data/request';
 import AuctionDetails from './AuctionDetails';
 import BidList from './BidList';
 import NewBidForm from './NewBidForm';
+import './AuctionShowPage.css';
 
 function AuctionShowPage(props) {
     const [auction,setAuction] = useState({});
-    const [checkReservePrice, setCheckReservePrice] = ('')
     const id = props.match.params.id
    
 
@@ -17,9 +17,7 @@ function AuctionShowPage(props) {
         setAuction(auction)
         })
     }
-    const checkBid=(bid)=>{
-        
-    }
+ 
     useEffect(()=>{
         loadAuction()
     },[])
@@ -27,7 +25,7 @@ function AuctionShowPage(props) {
     const {title, description,end_at,reserve_price,created_at,bids} = auction
     
     return (
-        <div>
+        <div className="container">
             <AuctionDetails
                 id = {id}
                 title = {title}
@@ -36,17 +34,17 @@ function AuctionShowPage(props) {
                 reserve_price = {reserve_price}
                 created_at = {new Date(created_at)}
             />
-              {!bids || bids === NaN?(<div></div>):
-            (<div>Current Price: {Math.max(...bids.map((bid)=>{
-                return bid.bid_price
-                }))}</div>)}
+              {!bids || bids === undefined?(<div></div>):
+            (<h5 className="mt-2">Current Price: {Math.max(...bids.map((bid)=>{
+                return bid.bid_price 
+                }))}</h5>)}
 
-            {!bids?(<div>No one bid in this auction</div>):
-            (<div>{Math.max(...bids.map((bid)=>{
+            {!bids || bids.length === 0?(<h5>No one bid in this auction</h5>):
+            (<h5>{Math.max(...bids.map((bid)=>{
                 return bid.bid_price
             }))>=reserve_price?(
             <div>Reserve Price Met</div>):
-            (<div>Reserve Price Not Met</div>)}</div>)}
+            (<div>Reserve Price Not Met</div>)}</h5>)}
             <NewBidForm id={id} 
                         history={props.history}
                         loadAuction ={loadAuction}
