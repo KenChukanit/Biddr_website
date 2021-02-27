@@ -9,7 +9,7 @@ function Navbar(props) {
     }
 
     return (
-       <nav className="navbar">
+       <nav className="navbar container">
         <div className= "navbar-container">
 
       

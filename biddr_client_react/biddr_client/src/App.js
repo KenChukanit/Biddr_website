@@ -52,7 +52,10 @@ function App(props) {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/auctions' component={AuctionIndexPage} />
           <AuthRoute path='/auctions/new' isAuth={user} component={NewAuctionPage}/>
-          <Route path='/auctions/:id' component={AuctionShowPage} />
+          <Route path='/auctions/:id' render={(props)=><AuctionShowPage 
+                                  currentUser={user} 
+                                  {...props}/>} 
+          />
           <Route exact path='/sign_in' render={(routeProps)=><SignInPage 
                                   handleSubmit={handleSubmit} 
                                   {...routeProps}/>} 

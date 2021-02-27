@@ -56,6 +56,7 @@ function AuctionShowPage(props) {
             <NewBidForm id={id} 
                         history={props.history}
                         loadAuction ={loadAuction}
+                        currentUser={props.currentUser}
             />
             <h3>Previous bids</h3>
             {!bids || bids.length===0?(<h3>Recently No Bid</h3>):(<BidList
