@@ -51,6 +51,7 @@ function AuctionShowPage(props) {
                         history={props.history}
                         loadAuction ={loadAuction}
             />
+            <h3>Previous bids</h3>
             <BidList
                 bids = {bids}
                 reserve_price ={reserve_price}

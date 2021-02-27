@@ -2,7 +2,6 @@ class Api::V1::BidsController < Api::ApplicationController
     before_action :authenticate_user!, only: [:create]
     def create
         auction = Auction.find params[:auction_id]
-       
         bid = Bid.create bid_params
         bid.user = current_user
         bid.auction = auction

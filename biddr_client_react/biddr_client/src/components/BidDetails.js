@@ -4,9 +4,9 @@ function BidDetails(props) {
     const {bid_price} = props;
 
     return (
-        <h2>
+        <h3>
             {bid_price}
-        </h2>
+        </h3>
     )
 }
 

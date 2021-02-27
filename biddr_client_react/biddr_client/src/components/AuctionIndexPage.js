@@ -15,7 +15,7 @@ function AuctionIndexPage(props) {
 
     return (
         <main>
-          <h1 className="index">Auctions</h1>
+          <h2 className="index">Auctions</h2>
         {auctions.map((a,i)=> {
           return(
             <div className="auction-index" key={i}>
