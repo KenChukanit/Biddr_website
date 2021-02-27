@@ -18,6 +18,8 @@ function NewBidForm(props) {
     }
 
     const createBid=(params,id)=>{
+        const price = params.bid_price;
+        const reserve_price = props.reserve_price;
         Bid.create(params,id)
         .then((bid)=>{
             if(bid.errors){
@@ -25,6 +27,7 @@ function NewBidForm(props) {
             }
             if(bid.id){
                 props.loadAuction()
+                props.checkMetReservePrice(price,reserve_price)
                 setErrors({})
                 props.history.push(`/auctions/${id}`)
             }

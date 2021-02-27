@@ -62,7 +62,7 @@ export const Auction = {
     return fetch(`${BASE_URL}/auctions/${id}`)
       .then(res => res.json())
   },
-  update(id,params){
+  update(params,id){
     return fetch(`${BASE_URL}/auctions/${id}`,{
       method: "PATCH",
       credentials: "include",

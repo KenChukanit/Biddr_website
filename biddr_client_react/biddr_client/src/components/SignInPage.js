@@ -1,8 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 
 const SignInPage =({handleSubmit, history,currentUser})=>{
-
+    const [email,setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [warning, setWarning] = useState('');
+  
     function onSubmit(event){
         event.preventDefault();
         const {currentTarget}=event;
@@ -12,24 +15,32 @@ const SignInPage =({handleSubmit, history,currentUser})=>{
             password: formData.get('password')
         }
         handleSubmit(formValues);
-        if(!currentUser){
-            history.push('/sign_in');
-            alert("no user please check you email and password")
-        }else{
-            history.push('/auctions');
-        }    
+        history.push('/auctions');
     }
     return(
         <main className="container">
         <h1>Sign In</h1>
         <form className="form-group" onSubmit={onSubmit}>
+            <div>{warning}</div>
             <div>
                 <label htmlFor='email'>Email</label>
-                <input id='email' type='email' name='email' className="form-control"/>
+                <input id='email' 
+                        type='email' 
+                        name='email' 
+                        className="form-control"
+                        value={email} 
+                        onChange={e=>setEmail(e.target.value)}
+            />
             </div>
             <div>
                 <label htmlFor='password'>Password</label>
-                <input id='password' type='password' name='password' className="form-control"/>
+                <input id='password' 
+                        type='password' 
+                        name='password' 
+                        className="form-control"
+                        value={password} 
+                        onChange={e=>setPassword(e.target.value)}
+                        />
             </div>
             <input type='submit' value='Sign In' />
         </form>

@@ -50,7 +50,10 @@ function App(props) {
           />  
           <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/auctions' component={AuctionIndexPage} />
+          <Route exact path='/auctions' render={(props)=><AuctionIndexPage 
+                                      currentUser={user} 
+                                      {...props}/>} 
+          />
           <AuthRoute path='/auctions/new' isAuth={user} component={NewAuctionPage}/>
           <Route path='/auctions/:id' render={(props)=><AuctionShowPage 
                                   currentUser={user} 

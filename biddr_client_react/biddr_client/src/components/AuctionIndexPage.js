@@ -5,7 +5,17 @@ import './AuctionIndexPage.css'
 
 function AuctionIndexPage(props) {
     const [auctions,setAuctions] = useState([]);
-
+    const currentUser = props.currentUser;
+  
+    const publishedUserAuctionFilter=(arr)=>{
+      return arr.filter((a)=>{
+        if(!currentUser){
+          return a.status === "published"
+        }else{
+          return a.seller.id === currentUser.id || a.status === "published"
+        }
+      })
+    }
     useEffect(()=>{
         Auction.index()
         .then((auctions) => {
@@ -16,7 +26,8 @@ function AuctionIndexPage(props) {
     return (
         <main className="container">
           <h2 className="index">Auctions</h2>
-        {auctions.map((a,i)=> {
+        <>
+        {publishedUserAuctionFilter(auctions).map((a,i)=> {
           return(
             <div className="auction-index" key={i}>
               <Link to={`/auctions/${a.id}`}>
@@ -28,6 +39,7 @@ function AuctionIndexPage(props) {
             </div>
           )
         })}
+        </>
       </main>
     )
 }

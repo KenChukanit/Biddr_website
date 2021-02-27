@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do 
     namespace :v1 do
-      resources :auctions, only:[:index, :show,  :create ] do
+      resources :auctions, only:[:index, :show,  :create, :update ] do
         resources :bids, only: [:create]
       end
       resource :session, only: [:create, :destroy]
