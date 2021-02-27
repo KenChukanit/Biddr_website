@@ -31,7 +31,7 @@ function NewAuctionForm(props) {
             if(auction.id){
                 const id = auction.id;
                 console.log(id)
-            props.history.push(`/auctions/${id}`)
+                props.history.push(`/auctions/${id}`)
             }
         })
     }

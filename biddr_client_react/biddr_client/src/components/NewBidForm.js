@@ -23,13 +23,12 @@ function NewBidForm(props) {
             if(bid.errors){
                 setErrors(bid.errors)
             }
-            if(bid){
-                console.log(bid)
+            if(bid.id){
+                props.loadAuction()
+                setErrors({})
+                props.history.push(`/auctions/${id}`)
             }
-            props.loadAuction()
-            props.history.push(`/auctions/${id}`)
-            setErrors({})
-            
+           
         })
     }
     return (

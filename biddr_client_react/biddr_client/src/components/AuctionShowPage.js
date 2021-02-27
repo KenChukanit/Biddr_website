@@ -8,7 +8,6 @@ import './AuctionShowPage.css';
 function AuctionShowPage(props) {
     const [auction,setAuction] = useState({});
     const id = props.match.params.id
-   
 
     const loadAuction=()=>{ 
         Auction.show(id)
@@ -26,6 +25,7 @@ function AuctionShowPage(props) {
             return max
         }
     }
+
     useEffect(()=>{
         loadAuction()
     },[])
