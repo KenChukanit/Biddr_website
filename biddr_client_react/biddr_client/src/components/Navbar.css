@@ -1,0 +1,28 @@
+nav{
+    width: 100vw;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color:  rgb(181, 221, 240);
+    flex-wrap: wrap;
+    text-decoration: none ;
+ 
+}
+
+nav .navbar-index{
+    margin-right: 20px;
+    font-size: 20px;
+  
+}
+span{
+    display: flex;
+    flex-direction: row;
+}
+button{
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 1%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}

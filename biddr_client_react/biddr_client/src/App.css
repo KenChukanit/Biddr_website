@@ -1,5 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Cherry+Swash);
 .App {
   text-align: center;
+  font-family: 'Cherry Swash';
+  text-decoration: none;
+  
 }
 
 .App-logo {
@@ -35,4 +39,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+html,body{
+ height: 100%;
+ width: 100%;
+ margin: 0;
+}
+ .welcome{
+  float: left;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.homepage{
+  background-image: url("https://searchengineland.com/figz/wp-content/seloads/2017/04/bid-609266888-ss-1920.jpg");
+  width: 100vw;
+  height: 100vh; 
+}
+.show{
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+}
+.show-detail{
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  position: relative;
 }
